@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.areykalho.netlify.app/sitemap.xml
+Sitemap: https://www.areykalho.dev/sitemap.xml

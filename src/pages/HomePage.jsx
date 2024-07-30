@@ -10,7 +10,7 @@ const HomePage = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Areykal Ho",
-    url: "https://www.areykalho.netlify.app",
+    url: "https://www.areykalho.dev",
     jobTitle: "Software Developer",
     description:
       "Areykal Ho is a junior Information and Communications Technology student specializing in Software and Data Engineering.",
@@ -26,9 +26,9 @@ const HomePage = () => {
       <SEO
         title="Home"
         description="Welcome to the portfolio of Areykal Ho, a software developer specializing in Software and Data Engineering."
-        keywords="software developer, web development, data engineering, Areykal Ho"
-        url="/"
-        image="/images/og-home.jpg"
+        keywords="areykal, areykal ho, ho areykal, software developer, software engineer, web development, mobile app development"
+        url="https://www.areykalho.dev"
+        type="website"
       />
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}

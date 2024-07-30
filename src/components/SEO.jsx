@@ -9,7 +9,7 @@ const SEO = ({
   url,
   type = "website",
 }) => {
-  const siteUrl = "https://www.areykalho.netlify.app"; // Replace with your actual domain
+  const siteUrl = "https://www.areykalho.dev"; // Replace with your actual domain
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const imgUrl = image
     ? `${siteUrl}${image}`
