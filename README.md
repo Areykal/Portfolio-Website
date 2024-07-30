@@ -34,7 +34,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/portfolio-website.git
+   git clone https://github.com/Areykal/portfolio-website.git
    ```
 
 2. Navigate to the project directory:
@@ -46,14 +46,6 @@ Before you begin, ensure you have met the following requirements:
    ```
    npm install
    ```
-
-4. Create a `.env` file in the root directory and add the following environment variables:
-   ```
-   REACT_APP_EMAIL_USER=your-email@example.com
-   REACT_APP_EMAIL_PASS=your-email-password
-   ```
-   Replace the values with your actual email credentials.
-
 ## Usage
 
 To run the development server:
@@ -62,7 +54,7 @@ To run the development server:
 npm start
 ```
 
-The website will be available at `http://localhost:3000`.
+The website will be available at `http://localhost:5173`.
 
 To build the project for production:
 
