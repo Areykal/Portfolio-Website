@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import LazyImage from "./LazyImage";
+import aboutMeImg from "@/assets/images/aboutMeImg.webp";
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,14 +30,6 @@ const AboutMe = () => {
     };
   }, []);
 
-  const scrollToSection = (e, sectionId) => {
-    e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div
       id="about-section"
@@ -51,11 +44,12 @@ const AboutMe = () => {
             }`}
           >
             <LazyImage
-              src="/images/aboutMeImg.webp"
+              src={aboutMeImg}
               alt="Developer working"
               className={`w-full max-w-md mx-auto rounded-lg shadow-xl transition-transform duration-1000 ${
                 isVisible ? "translate-x-0" : "-translate-x-full"
               }`}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div

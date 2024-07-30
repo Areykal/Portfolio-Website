@@ -1,53 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-const LazyImage = ({ src, alt, className }) => {
-  const [imageSrc, setImageSrc] = useState("/path/to/placeholder.jpg");
-  const [imageRef, setImageRef] = useState();
+const LazyImage = ({ src, alt, className, sizes }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef(null);
 
   useEffect(() => {
-    let observer;
-    let didCancel = false;
-
-    if (imageRef && imageSrc !== src) {
-      if (IntersectionObserver) {
-        observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (
-                !didCancel &&
-                (entry.intersectionRatio > 0 || entry.isIntersecting)
-              ) {
-                setImageSrc(src);
-                observer.unobserve(imageRef);
-              }
-            });
-          },
-          {
-            threshold: 0.01,
-            rootMargin: "75%",
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = src;
+            observer.unobserve(img);
           }
-        );
-        observer.observe(imageRef);
-      } else {
-        // Fallback for browsers that don't support IntersectionObserver
-        setImageSrc(src);
+        });
+      },
+      {
+        rootMargin: "100px",
       }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
     }
+
     return () => {
-      didCancel = true;
-      if (observer && observer.unobserve) {
-        observer.unobserve(imageRef);
+      if (imgRef.current) {
+        observer.unobserve(imgRef.current);
       }
     };
-  }, [src, imageSrc, imageRef]);
+  }, [src]);
+
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
 
   return (
-    <img
-      ref={setImageRef}
-      src={imageSrc}
-      alt={alt}
-      className={className}
-    />
+    <div className={`lazy-image-container ${className}`}>
+      <img
+        ref={imgRef}
+        alt={alt}
+        className={`transition-opacity duration-300 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        onLoad={handleImageLoad}
+        sizes={sizes}
+      />
+      {!isLoaded && (
+        <div
+          className="bg-gray-300 lazy-image-placeholder animate-pulse"
+          style={{ aspectRatio: "16/9" }}
+        />
+      )}
+    </div>
   );
 };
 

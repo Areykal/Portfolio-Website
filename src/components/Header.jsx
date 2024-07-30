@@ -1,41 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import LazyImage from "./LazyImage";
 import ScrollToTop from "./ScrollToTop";
 
+// Use dynamic import for the logo
+const logo = new URL("../assets/images/logo.webp", import.meta.url).href;
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 50);
+  }, []);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const scrollToSection = (e, sectionId) => {
+  const scrollToSection = useCallback((e, sectionId) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
-  };
+  }, []);
 
-  const scrollToTop = (e) => {
+  const scrollToTop = useCallback((e) => {
     e.preventDefault();
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  };
+  }, []);
 
   const navItems = ["About", "Projects", "Contact"];
 
@@ -54,12 +58,12 @@ const Header = () => {
               className="flex items-center"
             >
               <LazyImage
-                src="/images/logo.webp"
+                src={logo}
                 alt="Areykal Ho Logo"
-                className="w-10 h-10" // Adjust the size as needed
+                className="w-10 h-10"
+                sizes="40px"
               />
             </a>
-
             {/* Desktop Menu */}
             <nav className="hidden space-x-6 md:flex">
               {navItems.map((item) => (
@@ -96,10 +100,9 @@ const Header = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}-section`}
-                  onClick={(e) => {
-                    scrollToSection(e, `${item.toLowerCase()}-section`);
-                    setIsMenuOpen(false);
-                  }}
+                  onClick={(e) =>
+                    scrollToSection(e, `${item.toLowerCase()}-section`)
+                  }
                   className="transition-colors duration-300 text-slate-400 hover:text-blue-400"
                 >
                   {item}

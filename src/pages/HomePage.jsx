@@ -9,8 +9,17 @@ const HomePage = () => (
   <>
     <SEO
       title="Home"
-      description="Welcome to the portfolio of Areykal Ho, a software developer specializing in Software and Data Engineering."
+      description="Welcome to the portfolio of Areykal Ho, a software developer."
       keywords="software developer, web development, artificial intelligence"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Areykal Ho",
+        url: "https://www.areykalho.com",
+        jobTitle: "Software Developer",
+        description:
+          "Areykal Ho is a software developer.",
+      }}
     />
     <Hero />
     <AboutMe />

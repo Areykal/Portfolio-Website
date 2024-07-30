@@ -1,7 +1,7 @@
 import React from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
-const SEO = ({ title, description, keywords }) => (
+const SEO = ({ title, description, keywords, schema }) => (
   <Helmet>
     <title>{title} | Areykal Ho - Portfolio</title>
     <meta
@@ -28,7 +28,13 @@ const SEO = ({ title, description, keywords }) => (
       property="og:url"
       content={window.location.href}
     />
-    {/* Add more meta tags as needed */}
+    <link
+      rel="canonical"
+      href={window.location.href}
+    />
+    {schema && (
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    )}
   </Helmet>
 );
 
