@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import React, { useState, memo, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
@@ -56,9 +56,12 @@ const projects = [
   },
 ];
 
-const ProjectCard = memo(({ project, onClick }) => (
+const ProjectCard = memo(({ project, onClick, index, inView }) => (
   <div
-    className="overflow-hidden transition-transform duration-300 transform rounded-lg shadow-lg cursor-pointer bg-slate-700 hover:scale-105"
+    className={`overflow-hidden transition-all duration-500 transform rounded-lg shadow-lg cursor-pointer bg-slate-700 hover:scale-105 ${
+      inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+    }`}
+    style={{ transitionDelay: `${index * 100}ms` }}
     onClick={() => onClick(project)}
   >
     <div className="p-6">
@@ -73,6 +76,32 @@ const ProjectCard = memo(({ project, onClick }) => (
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [inView, setInView] = useState(false);
+  const projectsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (projectsRef.current) {
+      observer.observe(projectsRef.current);
+    }
+
+    return () => {
+      if (projectsRef.current) {
+        observer.unobserve(projectsRef.current);
+      }
+    };
+  }, []);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -85,21 +114,32 @@ const Projects = () => {
   return (
     <div
       id="projects-section"
+      ref={projectsRef}
       className="py-16 text-slate-300 bg-slate-800 sm:py-20"
     >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <h2 className="mb-6 text-3xl font-bold text-center text-blue-400 sm:text-4xl">
+        <h2
+          className={`mb-6 text-3xl font-bold text-center text-blue-400 sm:text-4xl transition-all duration-1000 ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+          }`}
+        >
           Projects
         </h2>
-        <p className="mb-12 text-lg text-center text-slate-400 sm:text-xl">
+        <p
+          className={`mb-12 text-lg text-center text-slate-400 sm:text-xl transition-all duration-1000 delay-300 ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           My journey through the tech world
         </p>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <ProjectCard
               key={project.name}
               project={project}
               onClick={handleProjectClick}
+              index={index}
+              inView={inView}
             />
           ))}
         </div>
@@ -109,7 +149,7 @@ const Projects = () => {
         onClose={closeModal}
       >
         {selectedProject && (
-          <div className="p-4 text-slate-300">
+          <div className="p-4 text-slate-300 animate-fadeIn">
             <h3 className="mb-4 text-2xl font-bold text-blue-400 sm:text-3xl">
               {selectedProject.name}
             </h3>
@@ -121,7 +161,7 @@ const Projects = () => {
               href={selectedProject.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 font-semibold transition-colors duration-300 bg-blue-400 rounded-full text-slate-900 hover:bg-blue-500"
+              className="inline-flex items-center px-6 py-3 font-semibold transition-all duration-300 transform bg-blue-400 rounded-full text-slate-900 hover:bg-blue-500 hover:shadow-lg hover:-translate-y-1"
             >
               <FontAwesomeIcon
                 icon={faGithub}
