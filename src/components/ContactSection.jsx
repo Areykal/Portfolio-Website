@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faPhone,
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,20 +13,38 @@ const ContactForm = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const form = useRef();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
-    alert("Thank you for your message! I'll get back to you soon.");
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.sendForm(
+        process.env.EMAILJS_SERVICE_ID,
+        process.env.EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.EMAILJS_USER_ID
+      );
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <form
+      ref={form}
       onSubmit={handleSubmit}
       className="max-w-lg mx-auto space-y-6"
     >
@@ -85,11 +104,20 @@ const ContactForm = () => {
       <div>
         <button
           type="submit"
-          className="flex justify-center w-full px-4 py-2 text-sm font-medium bg-blue-400 border border-transparent rounded-md shadow-sm text-slate-900 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          disabled={isSubmitting}
+          className="flex justify-center w-full px-4 py-2 text-sm font-medium bg-blue-400 border border-transparent rounded-md shadow-sm text-slate-900 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
         >
-          Send Message
+          {isSubmitting ? "Sending..." : "Send Message"}
         </button>
       </div>
+      {submitStatus === "success" && (
+        <div className="text-green-400">Message sent successfully!</div>
+      )}
+      {submitStatus === "error" && (
+        <div className="text-red-400">
+          Error sending message. Please try again later.
+        </div>
+      )}
     </form>
   );
 };
@@ -117,21 +145,21 @@ const ContactSection = () => {
                   icon={faEnvelope}
                   className="mr-3 text-blue-400"
                 />
-                <span>areykalkh@gmail.com</span>
+                <span>contact@areykalho.com</span>
               </div>
               <div className="flex items-center text-slate-300">
                 <FontAwesomeIcon
                   icon={faPhone}
                   className="mr-3 text-blue-400"
                 />
-                <span>+855 86 794 230</span>
+                <span>+1 (123) 456-7890</span>
               </div>
               <div className="flex items-center text-slate-300">
                 <FontAwesomeIcon
                   icon={faMapMarkerAlt}
                   className="mr-3 text-blue-400"
                 />
-                <span>Phnom Penh, Cambodia</span>
+                <span>San Francisco, CA</span>
               </div>
             </div>
           </div>
