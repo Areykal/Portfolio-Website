@@ -14,11 +14,10 @@ const HomePage = () => {
     jobTitle: "Software Developer",
     description:
       "Areykal Ho is a junior Information and Communications Technology student specializing in Software and Data Engineering.",
-    image: "https://www.yourportfolio.com/images/areykal-ho.jpg",
     sameAs: [
       "https://github.com/Areykal",
       "https://linkedin.com/in/areykal-ho",
-      // Add other social profile URLs
+      "https://t.me/Areykal",
     ],
   };
 
