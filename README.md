@@ -101,6 +101,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-Areykal Ho - contact@areykalho.com
+Areykal Ho - areykalkh@gmail.com
 
-Project Link: [https://github.com/yourusername/portfolio-website](https://github.com/yourusername/portfolio-website)
+Project Link: [https://github.com/Areykal/portfolio-website](https://github.com/Areykal/portfolio-website)
