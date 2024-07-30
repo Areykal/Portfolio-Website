@@ -6,7 +6,7 @@ import {
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import emailjs from "@emailjs/browser";
-
+import { EMAILJS_CONFIG } from "../emailjs-config";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -27,10 +27,10 @@ const ContactForm = () => {
 
     try {
       await emailjs.sendForm(
-        process.env.EMAILJS_SERVICE_ID,
-        process.env.EMAILJS_TEMPLATE_ID,
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
         form.current,
-        process.env.EMAILJS_USER_ID
+        EMAILJS_CONFIG.USER_ID
       );
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
