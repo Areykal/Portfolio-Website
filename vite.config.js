@@ -13,7 +13,6 @@ export default defineConfig({
         short_name: "Areykal Portfolio",
         description: "Portfolio website of Areykal Ho",
         theme_color: "#ffffff",
-        icons: [],
       },
     }),
   ],
