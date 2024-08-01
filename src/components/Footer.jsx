@@ -6,12 +6,13 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 
-const SocialIcon = ({ icon, url }) => (
+const SocialIcon = ({ icon, url, ariaLabel }) => (
   <a
     href={url}
     target="_blank"
     rel="noopener noreferrer"
     className="transition-colors duration-300 text-slate-400 hover:text-blue-400"
+    aria-label={ariaLabel}
   >
     <FontAwesomeIcon
       icon={icon}
@@ -31,14 +32,17 @@ const Footer = () => (
           <SocialIcon
             icon={faGithub}
             url="https://github.com/Areykal"
+            ariaLabel="Link to GitHub account"
           />
           <SocialIcon
             icon={faTelegram}
             url="https://t.me/Areykal"
+            ariaLabel="Link to Telegram account"
           />
           <SocialIcon
             icon={faLinkedinIn}
             url="https://linkedin.com/in/areykal-ho"
+            ariaLabel="Link to LinkedIn account"
           />
         </div>
       </div>
