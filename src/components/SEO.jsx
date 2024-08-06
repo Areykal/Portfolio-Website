@@ -36,6 +36,18 @@ const SEO = ({
         name="author"
         content={author}
       />
+      <meta
+        name="robots"
+        content="index, follow"
+      />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      />
+      <meta
+        name="theme-color"
+        content="#1e293b"
+      />
 
       {/* OpenGraph tags */}
       <meta
@@ -61,6 +73,18 @@ const SEO = ({
       <meta
         property="og:site_name"
         content="Areykal Ho Portfolio"
+      />
+      <meta
+        property="og:image:width"
+        content="1200"
+      />
+      <meta
+        property="og:image:height"
+        content="630"
+      />
+      <meta
+        name="twitter:card"
+        content="summary_large_image"
       />
 
       {/* Twitter Card tags */}

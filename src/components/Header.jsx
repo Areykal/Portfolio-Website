@@ -4,7 +4,6 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import LazyImage from "./LazyImage";
 import ScrollToTop from "./ScrollToTop";
 
-// Use dynamic import for the logo
 const logo = new URL("../assets/images/logo.webp", import.meta.url).href;
 
 const Header = () => {
@@ -56,6 +55,7 @@ const Header = () => {
               href="#"
               onClick={scrollToTop}
               className="flex items-center"
+              aria-label="Go to top of page"
             >
               <LazyImage
                 src={logo}
@@ -64,8 +64,10 @@ const Header = () => {
                 sizes="40px"
               />
             </a>
-            {/* Desktop Menu */}
-            <nav className="hidden space-x-6 md:flex">
+            <nav
+              className="hidden space-x-6 md:flex"
+              aria-label="Main navigation"
+            >
               {navItems.map((item) => (
                 <a
                   key={item}
@@ -80,11 +82,11 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
               className="transition-colors duration-300 text-slate-400 md:hidden hover:text-blue-400"
-              aria-label="Toggle menu"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
             >
               <FontAwesomeIcon
                 icon={isMenuOpen ? faTimes : faBars}
@@ -93,9 +95,14 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Mobile Menu */}
-          <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"} mt-4`}>
-            <nav className="flex flex-col space-y-4">
+          <div
+            className={`md:hidden ${isMenuOpen ? "block" : "hidden"} mt-4`}
+            aria-hidden={!isMenuOpen}
+          >
+            <nav
+              className="flex flex-col space-y-4"
+              aria-label="Mobile navigation"
+            >
               {navItems.map((item) => (
                 <a
                   key={item}
