@@ -6,7 +6,7 @@ import Projects from "../components/Projects";
 import ContactSection from "../components/ContactSection";
 
 const HomePage = () => {
-  const structuredData = {
+  const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Areykal Ho",
@@ -21,17 +21,25 @@ const HomePage = () => {
     ],
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Areykal Ho Portfolio",
+    url: "https://www.areykalho.dev",
+  };
+
   return (
     <>
       <SEO
         title="Home"
         description="Welcome to the portfolio of Areykal Ho, a software developer specializing in Software and Data Engineering."
         keywords="areykal, areykal ho, ho areykal, software developer, software engineer, web development, mobile app development"
-        url="https://www.areykalho.dev"
+        url="/"
         type="website"
       />
+      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
       <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
+        {JSON.stringify(websiteSchema)}
       </script>
       <Hero />
       <AboutMe />

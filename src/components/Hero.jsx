@@ -23,15 +23,17 @@ const Hero = () => {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         >
-          Software Developer
+          Areykal Ho: Software Developer & ICT Student
         </h1>
         <p
           className={`mb-12 text-lg text-slate-400 sm:text-xl md:text-2xl transition-all duration-1000 ease-out delay-300 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          Crafting elegant solutions for tomorrow's challenges
+          Crafting elegant solutions for web and mobile applications,
+          specializing in Software and Data Engineering
         </p>
+
         <div
           className={`flex flex-col justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 transition-all duration-1000 ease-out delay-600 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"

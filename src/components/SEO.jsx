@@ -8,8 +8,10 @@ const SEO = ({
   image,
   url,
   type = "website",
+  author = "Areykal Ho",
+  lang = "en",
 }) => {
-  const siteUrl = "https://www.areykalho.dev"; // Replace with your actual domain
+  const siteUrl = "https://www.areykalho.dev";
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const imgUrl = image
     ? `${siteUrl}${image}`
@@ -18,6 +20,7 @@ const SEO = ({
   return (
     <Helmet>
       {/* Standard metadata tags */}
+      <html lang={lang} />
       <title>{title} | Areykal Ho - Portfolio</title>
       <meta
         name="description"
@@ -29,6 +32,10 @@ const SEO = ({
           content={keywords}
         />
       )}
+      <meta
+        name="author"
+        content={author}
+      />
 
       {/* OpenGraph tags */}
       <meta
@@ -50,6 +57,10 @@ const SEO = ({
       <meta
         property="og:image"
         content={imgUrl}
+      />
+      <meta
+        property="og:site_name"
+        content="Areykal Ho Portfolio"
       />
 
       {/* Twitter Card tags */}
