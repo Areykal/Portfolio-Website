@@ -93,7 +93,7 @@ const AboutMe = () => {
               thinking, and teamwork skills.
             </p>
             <a
-              href="#projects"
+              href="#projects-secion"
               onClick={(e) => scrollToSection(e, "projects-section")}
               className={`inline-block px-6 py-3 font-semibold transition-all duration-300 bg-blue-400 rounded-full text-slate-900 hover:bg-blue-500 hover:shadow-lg ${
                 isVisible
