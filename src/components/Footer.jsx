@@ -41,7 +41,7 @@ const Footer = () => (
           />
           <SocialIcon
             icon={faLinkedinIn}
-            url="https://linkedin.com/in/areykal-ho"
+            url="https://linkedin.com/in/areykalho"
             ariaLabel="Link to LinkedIn account"
           />
         </div>
