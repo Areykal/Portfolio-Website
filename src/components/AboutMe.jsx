@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import LazyImage from "./LazyImage";
-import aboutMeImg from "@/assets/images/aboutMeImg.webp";
+import aboutMeImg from "@/assets/images/aboutMeImage.webp";
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,7 +53,7 @@ const AboutMe = () => {
           >
             <LazyImage
               src={aboutMeImg}
-              alt="Developer working"
+              alt="Developer avatar"
               className={`w-full max-w-md mx-auto rounded-lg shadow-xl transition-transform duration-1000 ${
                 isVisible ? "translate-x-0" : "-translate-x-full"
               }`}
