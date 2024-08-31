@@ -4,6 +4,8 @@ import {
   faGithub,
   faTelegram,
   faLinkedinIn,
+  faInstagram,
+  faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 
 const SocialIcon = ({ icon, url, ariaLabel }) => (
@@ -43,6 +45,16 @@ const Footer = () => (
             icon={faLinkedinIn}
             url="https://linkedin.com/in/areykalho"
             ariaLabel="Link to LinkedIn account"
+          />
+          <SocialIcon
+            icon={faInstagram}
+            url="https://www.instagram.com/areykal_/"
+            ariaLabel="Link to Instagram account"
+          />
+          <SocialIcon
+            icon={faFacebook}
+            url="https://www.facebook.com/AreykalHo/"
+            ariaLabel="Link to Facebook account"
           />
         </div>
       </div>
