@@ -30,7 +30,7 @@ const Footer = () => (
         <p className="mb-4 sm:mb-0">
           &copy; {new Date().getFullYear()} Areykal Ho. All rights reserved.
         </p>
-        <div className="flex pb-20 space-x-6 sm:pb-0">
+        <div className="flex pb-20 space-x-3 sm:pb-0">
           <SocialIcon
             icon={faGithub}
             url="https://github.com/Areykal"

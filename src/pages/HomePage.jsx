@@ -22,6 +22,8 @@ const HomePage = () => {
       "https://github.com/Areykal",
       "https://linkedin.com/in/areykal-ho",
       "https://t.me/Areykal",
+      "https://www.instagram.com/areykal_/",
+      "https://www.facebook.com/AreykalHo/",
     ],
     alumniOf: {
       "@type": "EducationalOrganization",
