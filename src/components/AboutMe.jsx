@@ -45,7 +45,7 @@ const AboutMe = () => {
       className="py-16 bg-slate-800 sm:py-20"
     >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center md:flex-row">
+        <div className="flex flex-col flex-wrap items-center md:flex-row">
           <div
             className={`mb-8 md:w-1/2 md:mb-0 transition-opacity duration-1000 ${
               isVisible ? "opacity-100" : "opacity-0"
@@ -104,6 +104,18 @@ const AboutMe = () => {
               Explore My Projects
             </a>
           </div>
+        </div>
+        <div
+          className={`mt-12 transition-opacity duration-1000 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <iframe
+            className="w-full max-w-2xl mx-auto rounded-xl shadow-xl h-[380px]"
+            src="https://open.spotify.com/embed/playlist/3ITbblyPHdJEy2XVs3Jr1F?utm_source=generator"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>

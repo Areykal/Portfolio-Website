@@ -23,7 +23,7 @@ const Hero = () => {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         >
-          Areykal Ho: Software Developer & ICT Student
+          Areykal Ho
         </h1>
         <p
           className={`mb-12 text-lg text-slate-400 sm:text-xl md:text-2xl transition-all duration-1000 ease-out delay-300 ${
