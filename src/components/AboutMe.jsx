@@ -112,7 +112,7 @@ const AboutMe = () => {
         >
           <iframe
             className="w-full max-w-2xl mx-auto rounded-xl shadow-xl h-[380px]"
-            src="https://open.spotify.com/embed/playlist/3ITbblyPHdJEy2XVs3Jr1F?utm_source=generator"
+            src="https://open.spotify.com/embed/playlist/6EjUc48fLLyoh3DyIGWjoi?utm_source=generator"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
