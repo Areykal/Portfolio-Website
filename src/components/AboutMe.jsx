@@ -110,9 +110,9 @@ const AboutMe = () => {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="relative p-4 mx-auto transition-all duration-300 rounded-lg shadow-lg max-w-[660px] bg-slate-700/50 hover:bg-slate-700/70 border border-slate-600 hover:border-blue-400 group">
+          <div className="relative p-4 mx-auto transition-all duration-300 rounded-3xl shadow-lg max-w-[660px] bg-slate-700/50 hover:bg-slate-700/70 border border-slate-600 hover:border-blue-400 group">
             <iframe
-              className="w-full transition-transform duration-300 rounded-md shadow-md bg-slate-800/50 group-hover:scale-[1.01]"
+              className="w-full transition-transform duration-300 rounded-2xl shadow-md bg-slate-800/50 group-hover:scale-[1.01]"
               height="450"
               frameBorder="0"
               title="Apple Music Playlist - Nostalgia"
