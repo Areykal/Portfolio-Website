@@ -110,12 +110,21 @@ const AboutMe = () => {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <iframe
-            className="w-full max-w-2xl mx-auto rounded-xl shadow-xl h-[380px]"
-            src="https://open.spotify.com/embed/playlist/6EjUc48fLLyoh3DyIGWjoi?utm_source=generator"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
+          <div className="relative p-4 mx-auto transition-all duration-300 rounded-lg shadow-lg max-w-[660px] bg-slate-700/50 hover:bg-slate-700/70 border border-slate-600 hover:border-blue-400 group">
+            <iframe
+              className="w-full transition-transform duration-300 rounded-md shadow-md bg-slate-800/50 group-hover:scale-[1.01]"
+              height="450"
+              frameBorder="0"
+              title="Apple Music Playlist - Nostalgia"
+              allow="autoplay *; encrypted-media *;"
+              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+              src="https://embed.music.apple.com/kh/playlist/nostalgia/pl.u-kv9l2BdC470pvp2"
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -115,7 +115,7 @@ const Projects = () => {
     <div
       id="projects-section"
       ref={projectsRef}
-      className="py-16 text-slate-300 bg-slate-800 sm:py-20"
+      className="pb-16 text-slate-300 bg-slate-800 sm:pb-20"
     >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <h2
