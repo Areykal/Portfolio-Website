@@ -190,13 +190,6 @@ const ContactSection = () => {
               </div>
               <div className="flex items-center text-slate-300">
                 <FontAwesomeIcon
-                  icon={faPhone}
-                  className="mr-3 text-blue-400"
-                />
-                <span>+855 86 794 230</span>
-              </div>
-              <div className="flex items-center text-slate-300">
-                <FontAwesomeIcon
                   icon={faMapMarkerAlt}
                   className="mr-3 text-blue-400"
                 />
