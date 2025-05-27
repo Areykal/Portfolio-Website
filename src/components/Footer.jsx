@@ -48,7 +48,7 @@ const Footer = () => (
           />
           <SocialIcon
             icon={faInstagram}
-            url="https://www.instagram.com/areykal_/"
+            url="https://www.instagram.com/areykal.h/"
             ariaLabel="Link to Instagram account"
           />
           <SocialIcon
