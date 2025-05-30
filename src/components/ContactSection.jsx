@@ -186,7 +186,7 @@ const ContactSection = () => {
                   icon={faEnvelope}
                   className="mr-3 text-blue-400"
                 />
-                <span>areykalkh@gmail.com</span>
+                <span>areykal.dev@gmail.com</span>
               </div>
               <div className="flex items-center text-slate-300">
                 <FontAwesomeIcon
