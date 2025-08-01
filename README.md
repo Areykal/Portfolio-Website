@@ -93,6 +93,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-Areykal Ho - areykalkh@gmail.com
+Areykal Ho - areykal.dev@gmail.com
 
 Project Link: [https://github.com/Areykal/portfolio-website](https://github.com/Areykal/portfolio-website)
